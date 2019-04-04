@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<script src="plotly-latest.min.js"></script>
+</head>
+	<title> Quiz about Giovanna! </title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+	<link rel="stylesheet" href="https://use.typekit.net/ema4eyt.css">
+	<link rel="stylesheet" href="https://use.typekit.net/ema4eyt.css">
+		<br>
+	<body>
+	<div class="sidebar-textt">
+	<a href="start.html"> Quiz </a>
+		<br>
+	<a href="about.html"> Answers </a>
+		<br>
+	<a href="results.html"> Results </a>
+		<br>
+	</div>
+	<div class="header"> Results</div>
+	<div class="special-header" class="results-header">What food did Giovanna frequently choke on as a child?</div>
+	<div class="results-space2" id="results">
+	<div class="results-header">What’s Giovanna’s favorite brand of shoe?</div>
+
+	<div class="results-space" id="results1">
+	<div class="results-header">What article of clothing did Giovanna wear every day of the sixth grade?</div>
+
+	<div class="results-space" id="results2">
+	<div class="results-header">Roughly how many photos of her dog does Giovanna have on her computer?</div>
+
+	<div class="results-space" id="results3">
+	<div class="results-header">What was the first program Giovanna used to experiment with graphic design?</div>
+
+	<div class="results-space" id="results4">
+	<div class="results-header">What's Giovanna's greatest fear?</div>	
+
+	<div class="results-space" id="results5">
+	<div class="results-header">What was the first show Giovanna saw on Broadway?</div>
+
+	<div class="results-space" id="results6">
+	<div class="results-header">Which character is the one Giovanna plays in Dungeons and Dragons?</div>
+
+	<div class="results-space" id="results7">
+	<div class="results-header">Who did Giovanna name her current car after?</div>
+
+	<div class="results-space" id="results8">
+
+		<div class="myDiv" id="myDiv"></div>
+		
+			<script>
+				(function() {
+					function readAnswers(questionNumber) {
+						var answers = [];
+						var local = window.localStorage.getItem(questionNumber).split(",");
+						local.forEach( (a) => {
+							if(a !== "undefined" && a !== "") answers.push(a);
+							}
+						);
+						return answers;
+					}
+					function count(answers) {
+						numbers = 
+						{
+							A: 0,
+							B: 0,
+							C: 0,
+							D: 0,
+							E: 0
+						}
+						answers.forEach( (a) => {
+							numbers[a]++; 
+						})
+						return Object.values(numbers);		
+					}
+					
+					var ultimateColors = [
+					['#FFEEC6', '#FC8D8D', '#70626', '#65BECE', '#123744'],
+					];
+					
+					var data = [{
+					  name: 'What food did Giovanna frequently choke on as a child?',
+					  values: count(readAnswers(1)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['Applesauce', 'Cheese', 'Hot dogs', 'Rice', 'Salad'],
+					  type: 'pie'
+					}];
+					
+					
+					
+					var layout = {
+  						height: 400,
+  						width: 900,
+  						margin: {
+  						 l: 20,
+  						 r: 300,
+  						 b: 70,
+  						 t: 70
+  						 },
+  						font: {
+  						 size: 15,
+  						 },
+  						
+  					
+					};
+
+					Plotly.newPlot('results', data, layout);
+					
+					
+					data1 = [{
+					  name: 'What’s Giovanna’s favorite brand of shoe?',
+					  values: count(readAnswers(1)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['Birkenstocks', 'Crocs', 'Converse', 'Fake UGGs', 'Flip flops'],
+					  type: 'pie'
+					}];
+
+					Plotly.newPlot('results1', data1, layout);
+					
+					data2 = [{
+					  name: 'What article of clothing did Giovanna wear every day of the sixth grade?',
+					  values: count(readAnswers(2)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['A hat', 'A headband', 'Leg warmers', 'A scarf', 'A sweatshirt'],
+					  type: 'pie'
+					}];
+
+					Plotly.newPlot('results2', data2, layout);
+					
+					data3 = [{
+					  name: 'Roughly how many photos of her dog does Giovanna have on her computer?',
+					  values: count(readAnswers(3)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['15', '30', '100', '180', '260'],
+					  type: 'pie'
+					}];
+
+					Plotly.newPlot('results3', data3, layout);
+					
+					data4 = [{
+					  name: 'What was the first program Giovanna used to experiment with graphic design?',
+					  values: count(readAnswers(4)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['Google Slides', 'MS Paint', 'Photoshop', 'PowerPoint', 'Sketchbook Pro'],
+					  type: 'pie'
+					}];
+
+					Plotly.newPlot('results4', data4, layout);	
+
+					data5 = [{
+					  name: 'What is Giovannas greatest fear?',
+					  values: count(readAnswers(5)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['Bats', 'Drowning', 'Heights', 'Kidnapping', 'Spiders'],
+					  type: 'pie'
+					}];
+
+					Plotly.newPlot('results5', data5, layout);
+
+					data6 = [{
+					  name: 'What was the first show Giovanna saw on Broadway?',
+					  values: count(readAnswers(6)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['Come From Away', 'Disaster!', 'Kinky Boots', 'The Prom', 'Waitress'],
+					  type: 'pie'
+					}];
+
+					Plotly.newPlot('results6', data6, layout);
+					
+					data7 = [{
+					  name: 'Which character is the one Giovanna plays in Dungeons and Dragons?',
+					  values: count(readAnswers(7)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['Faen, half-elf sorcerer', 'Mara, half-genie paladin', 'Natali, human ranger', 'Thokk, half-orc druid', 'Vierna, dark elf cleric'],
+					  type: 'pie'
+					}];
+
+					Plotly.newPlot('results7', data7, layout);
+					
+					data8 = [{
+					  name: 'Who did Giovanna name her current car after?',
+					  values: count(readAnswers(8)),
+					  marker: {colors: ultimateColors[0]},
+					  labels: ['Lupita Nyongo', 'Percy Jackson', 'Her grandmother, Rose', 'Suzanne Collins', 'Tony Stark'],
+					  type: 'pie'
+					}];
+
+					Plotly.newPlot('results8', data8, layout);
+					
+
+					
+					
+			
+					
+				}())
+					
+// 					results = document.getElementById('results'); 
+// 					results.innerHTML = readAnswers(1).join(",");
+					
+					
+
+
+			</script>
+
+	</div>
+	</body>
+</html>
